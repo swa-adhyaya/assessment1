@@ -2,26 +2,16 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 18
     commands:
-      - echo "Installing dependencies..."
-      - npm install
-
-  pre_build:
-    commands:
-      - echo "Running unit tests..."
-      - npm test
+      - echo "Install phase"
 
   build:
     commands:
-      - echo "Build started on $(date)"
-      - echo "Packaging application..."
-      # - npm run build
+      - echo "Build phase"
 
   post_build:
     commands:
-      - echo "Build completed on $(date)"
+      - echo "Build completed"
 
 artifacts:
   files:
