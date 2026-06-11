@@ -1,0 +1,25 @@
+version: 0.2 # Specifies the buildspec version
+phases: # The build is broken down into sequential phases
+install:
+runtime-versions: # Specify language runtimes to use
+nodejs: 18
+commands: # Commands to run during the installation phase
+- echo "Installing dependencies..."
+- npm install
+pre_build:
+commands: # Commands to run before the main build (e.g., tests, linting)
+- echo "Running unit tests..."
+- npm test
+build:
+commands: # The main build commands
+- echo "Build started on `date`"
+- echo "Packaging application..."
+# Example: npm run build (for a React/Vue app)
+post_build:
+commands: # Commands to run after the build (e.g., cleanup, notifications)
+- echo "Build completed on `date`"
+artifacts:
+# Defines which files from the build environment to save as artifacts
+files:
+- '**/*' # This glob pattern includes all files and directories
+# base-directory: 'dist' # Uncomment if your build output is in a subfolder
